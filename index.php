@@ -45,26 +45,11 @@ class wechatCallbackapiTest
                 case "event":
                     $result = $this->receiveEvent($postObj);
                     break;
-                /* case "text":
+                case "text":
                     $result = $this->receiveText($postObj);
                     break;
-                case "image":
-                    $result = $this->receiveImage($postObj);
-                    break;
-                case "location":
-                    $result = $this->receiveLocation($postObj);
-                    break;
-                case "voice":
-                    $result = $this->receiveVoice($postObj);
-                    break;
-                case "video":
-                    $result = $this->receiveVideo($postObj);
-                    break;
-                case "link":
-                    $result = $this->receiveLink($postObj);
-                    break; */
                 default:
-                    $result = "unknown msg type: ".$RX_TYPE;
+                    $result = "不支持的事件类型".$RX_TYPE;
                     break;
             }
             $this->logger("T ".$result);
@@ -169,53 +154,6 @@ class wechatCallbackapiTest
 
         return $result;
     }
-
-    //接收图片消息
-    private function receiveImage($object)
-    {
-        $content = array("MediaId"=>$object->MediaId);
-        $result = $this->transmitImage($object, $content);
-        return $result;
-    }
-
-    //接收位置消息
-    private function receiveLocation($object)
-    {
-        $content = "你发送的是位置，纬度为：".$object->Location_X."；经度为：".$object->Location_Y."；缩放级别为：".$object->Scale."；位置为：".$object->Label;
-        $result = $this->transmitText($object, $content);
-        return $result;
-    }
-
-    //接收语音消息
-    private function receiveVoice($object)
-    {
-        if (isset($object->Recognition) && !empty($object->Recognition)){
-            $content = "你刚才说的是：".$object->Recognition;
-            $result = $this->transmitText($object, $content);
-        }else{
-            $content = array("MediaId"=>$object->MediaId);
-            $result = $this->transmitVoice($object, $content);
-        }
-
-        return $result;
-    }
-
-    //接收视频消息
-    private function receiveVideo($object)
-    {
-        $content = array("MediaId"=>$object->MediaId, "ThumbMediaId"=>$object->ThumbMediaId, "Title"=>"", "Description"=>"");
-        $result = $this->transmitVideo($object, $content);
-        return $result;
-    }
-
-    //接收链接消息
-    private function receiveLink($object)
-    {
-        $content = "你发送的是链接，标题为：".$object->Title."；内容为：".$object->Description."；链接地址为：".$object->Url;
-        $result = $this->transmitText($object, $content);
-        return $result;
-    }
-
     //回复文本消息
     private function transmitText($object, $content)
     {
@@ -367,6 +305,7 @@ $item_str
     //日志记录
     private function logger($log_content)
     {
+        return;
         if(isset($_SERVER['HTTP_APPNAME'])){   //SAE
             sae_set_display_errors(false);
             sae_debug($log_content);
