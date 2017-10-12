@@ -305,7 +305,6 @@ $item_str
     //日志记录
     private function logger($log_content)
     {
-        return;
         if(isset($_SERVER['HTTP_APPNAME'])){   //SAE
             sae_set_display_errors(false);
             sae_debug($log_content);
