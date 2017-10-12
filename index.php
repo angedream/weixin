@@ -45,7 +45,7 @@ class wechatCallbackapiTest
                 case "event":
                     $result = $this->receiveEvent($postObj);
                     break;
-                case "text":
+                /* case "text":
                     $result = $this->receiveText($postObj);
                     break;
                 case "image":
@@ -62,7 +62,7 @@ class wechatCallbackapiTest
                     break;
                 case "link":
                     $result = $this->receiveLink($postObj);
-                    break;
+                    break; */
                 default:
                     $result = "unknown msg type: ".$RX_TYPE;
                     break;
