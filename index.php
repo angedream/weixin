@@ -129,16 +129,16 @@ class wechatCallbackapiTest
             }else if (strstr($keyword, "单图文")){
                 $content = array();
                 $content[] = array("Title"=>"PLC温度信息查询",  "Description"=>"
-                PLC识别码：13512485472\n
-                  PLC名称：王顶堤金管理\n
-                 在线状态：离线
-                 更新时间:2017-10-17 14:36:28\n
-                管壁内温度：12.2℃\n
-                管壁外温度：12℃\n
-                  环境温度：39℃\n
-                      区域：南开区\n
-                     地址：王顶堤金冠里6-1门楼顶\n
-                ", "PicUrl"=>"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3498618166,2076407864&fm=27&gp=0.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                PLC识别码：13512485472
+                PLC名称：王顶堤金管理
+                在线状态：离线
+                更新时间:2017-10-17 14:36:28
+                管壁内温度：12.2℃
+                管壁外温度：12℃
+                环境温度：39℃
+                区域：南开区
+                地址：王顶堤金冠里6-1门楼顶"
+                , "PicUrl"=>"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3498618166,2076407864&fm=27&gp=0.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
             }else if (strstr($keyword, "图文") || strstr($keyword, "多图文")){
                 $content = array();
                 $content[] = array("Title"=>"多图文1标题", "Description"=>"", "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
