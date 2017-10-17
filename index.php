@@ -128,7 +128,7 @@ class wechatCallbackapiTest
                 $content = "这是个文本消息";
             }else if (strstr($keyword, "单图文")){
                 $content = array();
-                $content[] = array("Title"=>"单图文标题",  "Description"=>"单图文内容", "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                $content[] = array("Title"=>"单图文标题",  "Description"=>"单图文内容", "PicUrl"=>"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3498618166,2076407864&fm=27&gp=0.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
             }else if (strstr($keyword, "图文") || strstr($keyword, "多图文")){
                 $content = array();
                 $content[] = array("Title"=>"多图文1标题", "Description"=>"", "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
