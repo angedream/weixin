@@ -164,11 +164,18 @@ class wechatCallbackapiTest
 <MsgType><![CDATA[text]]></MsgType>
 <Content><![CDATA[%s]]></Content>
 </xml>";
+        $content="
+        plc识别码：13512485472\n
+        plc名称：王顶堤金管理\n
+        在线状态：离线
+        更新时间：2017年10月17日14:36:28\n
+        管壁内温度：12.2℃\n
+        管壁外温度：12℃\n
+        环境温度：39℃\n
+        区域：南开区\n
+        地址：王顶堤金冠里6-1门楼顶\n
+        ";
         $result = sprintf($xmlTpl, $object->FromUserName, $object->ToUserName, time(), $content);
-        for($i=0;$i<1000;$i++)
-        {
-            $result.=i;
-        }
         return $result;
     }
 
