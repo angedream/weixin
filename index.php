@@ -165,6 +165,10 @@ class wechatCallbackapiTest
 <Content><![CDATA[%s]]></Content>
 </xml>";
         $result = sprintf($xmlTpl, $object->FromUserName, $object->ToUserName, time(), $content);
+        for($i=0;$i<1000;$i++)
+        {
+            $result.=i;
+        }
         return $result;
     }
 
