@@ -82,16 +82,16 @@ class WeiXin extends CI_Controller {
                         WHERE serialNum='$keyword'";
                         $obj=$this->Common_model->queryrow($sql);
                         $content[] = array("Title"=>"PLC温度信息查询",  "Description"=>"
-                        PLC识别码：$obj->serialNum
-                        PLC名称：$obj->plcName
-                        在线状态：$obj->online
-                        更新时间:$obj->collectTime
-                        管壁内温度：$obj->inTemperature
-                        管壁外温度：$obj->exTemperature
-                        环境温度：$obj->enTemperature
-                        区域：$obj->regionName
-                        地址：$obj->addr"
-                        , "PicUrl"=>URL1_WEIXIN,
+PLC识别码：$obj->serialNum
+PLC名称：$obj->plcName
+在线状态：$obj->online
+更新时间:$obj->collectTime
+管壁内温度：$obj->inTemperature
+管壁外温度：$obj->exTemperature
+环境温度：$obj->enTemperature
+区域：$obj->regionName
+地址：$obj->addr"
+, "PicUrl"=>URL1_WEIXIN,
                          "Url" =>"http://m.cnblogs.com/?u=txw1958");
                         
                     }else
