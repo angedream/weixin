@@ -112,16 +112,21 @@ class WeiXin extends CI_Controller {
                         }
                     }
              }else{
-                 $content = array();
-                 $content[] = array("Title"=>"多图文1标题", "Description"=>"", 
-                 "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", 
-                 "Url" =>"http://m.cnblogs.com/?u=txw1958");
-                 $content[] = array("Title"=>"多图文2标题", "Description"=>"", 
-                 "PicUrl"=>"http://d.hiphotos.bdimg.com/wisegame/pic/item/f3529822720e0cf3ac9f1ada0846f21fbe09aaa3.jpg",
-                  "Url" =>"http://m.cnblogs.com/?u=txw1958");
-                 $content[] = array("Title"=>"多图文3标题", "Description"=>"", 
-                 "PicUrl"=>"http://g.hiphotos.bdimg.com/wisegame/pic/item/18cb0a46f21fbe090d338acc6a600c338644adfd.jpg", 
-                 "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                    $sql="SELECT r.regionName,p.* FROM i_plc AS p
+                    LEFT JOIN i_region AS r ON r.regionId=p.regoinId
+                    WHERE plcName like '%$keyword%' LIMIT 0,6";
+                    $objs=$this->Common_model->getGrid($sql);
+                    $content[] = array("Title"=>"PLC身份识别码信息查询", "Description"=>"", 
+                    "PicUrl"=>URL1_WEIXIN, 
+                    "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                    foreach($objs as $obj)
+                    {
+                        $content[] = array("Title"=>"$obj->plcName:$obj->serialNum",
+                        "Description"=>"",
+                        "PicUrl"=>URL1_WEIXIN,
+                        "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                    }
+                 
              }
              
              if(is_array($content)){
