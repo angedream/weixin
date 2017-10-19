@@ -8,6 +8,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 define("TOKEN", "zilong");
 define("URL1_WEIXIN","https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3498618166,2076407864&fm=27&gp=0.jpg");
+define("URL2_WEIXIN","http://angerdream.top/index.php/WeiXin/showPlc/");
 class WeiXin extends CI_Controller {
 	 public function __construct()
     {
@@ -23,7 +24,16 @@ class WeiXin extends CI_Controller {
         }
 
     }
-    
+
+    public function shwoPlc($id){
+        $sql="SELECT r.regionName,p.* FROM i_plc AS p
+        LEFT JOIN i_region AS r ON r.regionId=p.regoinId
+        WHERE plcId=$id";
+        $obj=$this->Common_model->queryrow($sql);
+        $this->load->view('weixinui',$obj);
+
+    }
+
     public function valid()
     {
         $echoStr = $_GET["echostr"];
@@ -108,7 +118,7 @@ class WeiXin extends CI_Controller {
                             $content[] = array("Title"=>"$obj->plcName:$obj->serialNum",
                             "Description"=>"",
                             "PicUrl"=>URL1_WEIXIN,
-                            "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                            "Url" =>URL2_WEIXIN.$obj->plcId);
                         }
                     }
              }else{
@@ -124,7 +134,7 @@ class WeiXin extends CI_Controller {
                         $content[] = array("Title"=>"$obj->plcName:$obj->serialNum",
                         "Description"=>"",
                         "PicUrl"=>URL1_WEIXIN,
-                        "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                        "Url" =>URL2_WEIXIN.$obj->plcId);
                     }
                  
              }
