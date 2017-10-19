@@ -25,7 +25,7 @@ class WeiXin extends CI_Controller {
 
     }
 
-    public function shwoPlc($id){
+    public function showPlc($id){
         $sql="SELECT r.regionName,p.* FROM i_plc AS p
         LEFT JOIN i_region AS r ON r.regionId=p.regoinId
         WHERE plcId=$id";
