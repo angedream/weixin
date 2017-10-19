@@ -100,11 +100,13 @@ class WeiXin extends CI_Controller {
                         LEFT JOIN i_region AS r ON r.regionId=p.regoinId
                         WHERE serialNum like '%$keyword%' LIMIT 0,6";
                         $objs=$this->Common_model->getGrid($sql);
+                        $content[] = array("Title"=>"PLC身份识别码信息查询", "Description"=>"", 
+                        "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", 
+                        "Url" =>"http://m.cnblogs.com/?u=txw1958");
                         foreach($objs as $obj)
                         {
                             $content[] = array("Title"=>"
-                            身份识别码：$obj->serialNum
-                            PLC名称：$obj->plcName:",
+                            $obj->serialNum",
                             "Description"=>"",
                             "PicUrl"=>"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3498618166,2076407864&fm=27&gp=0.jpg",
                             "Url" =>"http://m.cnblogs.com/?u=txw1958");
