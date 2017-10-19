@@ -102,7 +102,7 @@ class WeiXin extends CI_Controller {
                         $objs=$this->Common_model->getGrid($sql);
                         $content[] = array("Title"=>"PLC身份识别码信息查询", "Description"=>"", 
                         "PicUrl"=>URL1_WEIXIN, 
-                        "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                        "Url" =>"");
                         foreach($objs as $obj)
                         {
                             $content[] = array("Title"=>"$obj->plcName:$obj->serialNum",
@@ -118,7 +118,7 @@ class WeiXin extends CI_Controller {
                     $objs=$this->Common_model->getGrid($sql);
                     $content[] = array("Title"=>"PLC身份识别码信息查询", "Description"=>"", 
                     "PicUrl"=>URL1_WEIXIN, 
-                    "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                    "Url" =>"");
                     foreach($objs as $obj)
                     {
                         $content[] = array("Title"=>"$obj->plcName:$obj->serialNum",
