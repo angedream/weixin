@@ -99,11 +99,11 @@ class WeiXin extends CI_Controller {
                         $sql="SELECT r.regionName,p.* FROM i_plc AS p
                         LEFT JOIN i_region AS r ON r.regionId=p.regoinId
                         WHERE serialNum like '%$keyword%' LIMIT 0,6";
-                        $objs=$this->Common_model->query($sql);
+                        $objs=$this->Common_model->getGrid($sql);
                         foreach($objs as $obj)
                         {
-                            $content[] = array("Title"=>"$obj->plcName:$obj->serialNum",  "Description"=>""
-                            , 
+                            $content[] = array("Title"=>"$obj->plcName:$obj->serialNum",
+                            "Description"=>"",
                             "PicUrl"=>"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3498618166,2076407864&fm=27&gp=0.jpg",
                             "Url" =>"http://m.cnblogs.com/?u=txw1958");
                         }
