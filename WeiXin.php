@@ -7,7 +7,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 define("TOKEN", "zilong");
-
+define("URL1_WEIXIN","https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3498618166,2076407864&fm=27&gp=0.jpg");
 class WeiXin extends CI_Controller {
 	 public function __construct()
     {
@@ -91,7 +91,7 @@ class WeiXin extends CI_Controller {
                         环境温度：$obj->enTemperature
                         区域：$obj->regionName
                         地址：$obj->addr"
-                        , "PicUrl"=>"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3498618166,2076407864&fm=27&gp=0.jpg",
+                        , "PicUrl"=>URL1_WEIXIN,
                          "Url" =>"http://m.cnblogs.com/?u=txw1958");
                         
                     }else
@@ -101,14 +101,13 @@ class WeiXin extends CI_Controller {
                         WHERE serialNum like '%$keyword%' LIMIT 0,6";
                         $objs=$this->Common_model->getGrid($sql);
                         $content[] = array("Title"=>"PLC身份识别码信息查询", "Description"=>"", 
-                        "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", 
+                        "PicUrl"=>URL1_WEIXIN, 
                         "Url" =>"http://m.cnblogs.com/?u=txw1958");
                         foreach($objs as $obj)
                         {
-                            $content[] = array("Title"=>"
-                            $obj->serialNum",
+                            $content[] = array("Title"=>"身份识别码：$obj->serialNum",
                             "Description"=>"",
-                            "PicUrl"=>"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3498618166,2076407864&fm=27&gp=0.jpg",
+                            "PicUrl"=>URL1_WEIXIN,
                             "Url" =>"http://m.cnblogs.com/?u=txw1958");
                         }
                     }
